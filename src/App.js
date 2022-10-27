@@ -15,6 +15,7 @@ import {db} from "./initFirebase";
 import {useEffect, useState, Component} from "react";
 import Logout from "./pages/Logout";
 import * as PropTypes from "prop-types";
+import MyPage from "./pages/MyPage";
 
 export default function App() {
     /* Current user state */
@@ -55,7 +56,8 @@ export default function App() {
                         <Route path="/logout" element={<Logout/>}/>
                         <Route path="/" element={<QuestionList/>}></Route>
                         <Route path="/admin" element={<NormalValueList currentUser={currentUser}></NormalValueList>}/>
-                        </Routes>
+                        <Route path={"/view"} element={<MyPage/>}/>
+                    </Routes>
                 </header>
                 <Routes>
                     <Route path="/editAvatar" element={<EditAvatar/>}/>
