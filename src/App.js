@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import QuestionList from "./pages/Questionnaire";
 import NormalValueList from "./pages/Admin";
+//import icon from "./icon.svg.png";
+import icon from "./hearth_icon.png"
 
 import {onAuthStateChanged} from "firebase/auth";
 import {auth} from "./initFirebase";
@@ -16,6 +18,39 @@ import {useEffect, useState, Component} from "react";
 import Logout from "./pages/Logout";
 import * as PropTypes from "prop-types";
 import MyPage from "./pages/MyPage";
+
+class Navigate extends React.Component {
+
+    render() {
+        let LoginLogout = null;
+        let register = null;
+        //used to only display login and register to unauthenticated user
+        if (this.props.currentUser) {
+            LoginLogout = <a href="/logout">Logout</a>
+        } else {
+            LoginLogout = <a href="/login">Login</a>
+            register = <li><a href="/register">Register</a></li>
+        }
+
+        return (
+            <div id="navBarDiv">
+                <a href="/home"><img id="icon" src={icon} alt="logo" /></a>
+                <nav className="navbar navbar-default appBar">
+                    <div className="container-fluid">
+                        <ul className="nav navbar-nav">
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/">Questionnaire</a></li>
+                            <li><a href="/editAvatar">Avatar</a></li>
+                            {register}
+                            <li>{LoginLogout}</li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        )
+    };
+}
+
 
 export default function App() {
     /* Current user state */
@@ -47,6 +82,7 @@ export default function App() {
     //Separation of editAvatar Route due to css display issues (text-align: center;)
     return (
         <div className="App">
+            <Navigate currentUser={currentUser}/>
             <header className="App-header">
                 <header className="App-header-align">
                     <Routes>
@@ -54,13 +90,13 @@ export default function App() {
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/logout" element={<Logout/>}/>
-                        <Route path="/" element={<QuestionList/>}></Route>
+                        <Route path="/" element={<QuestionList currentUser={currentUser}/>}></Route>
                         <Route path="/admin" element={<NormalValueList currentUser={currentUser}></NormalValueList>}/>
                         <Route path={"/view"} element={<MyPage/>}/>
                     </Routes>
                 </header>
                 <Routes>
-                    <Route path="/editAvatar" element={<EditAvatar/>}/>
+                    <Route path="/editAvatar" element={<EditAvatar currentUser={currentUser}/>}/>
                 </Routes>
             </header>
 

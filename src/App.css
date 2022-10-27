@@ -12,30 +12,89 @@
     }
 }
 
+#navBarDiv {
+    background-color: black;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#icon {
+    float: left;
+    height: 40px;
+    margin-top: 10px;
+    min-width: 15px;
+    margin-left: 21%;
+    margin-right: 0.5%;
+}
+
+.appBar {
+    width: 90%;
+}
+
+.appBar li {
+    float: left;
+}
+
+.appBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+}
+
+.appBar li a:hover:not(.active) {
+    background-color: #1A73E8;
+    color: white;
+}
+
+.appBar .active {
+    background-color: #1A73E8;
+}
+
+.appBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 .padded_div {
     min-height: 50vh;
-    margin: auto;
+    margin: 0 auto;
+    margin-left: 0;
     border-radius: 15px;
     padding: 3vh;
     border: 2px solid lightgray;
-    box-shadow: 3px 3px #888888;
+    box-shadow: 1px 1px #888888;
 }
 
 .register {
+    display: flex;
+    min-height: auto;
     max-width: 60%;
     min-width: 50%;
+    justify-content: center;
+    /*margin: auto;*/
+}
+
+.disclaimer {
+    font-size: medium;
 }
 
 .login {
     min-height: 40vh;
     width: 100%;
+    margin-left: 0;
 }
 
 .avatar {
     margin-top: 2%;
     margin-bottom: 5%;
     padding-top: 0px;
-    min-width: 50%;
+    min-width: 65%;
 }
 
 #questionnaire {
@@ -47,7 +106,7 @@
     align-items: initial !important;
     flex-direction: column;
     margin-left: 0px;
-    box-shadow: 0px 0px ;
+    box-shadow: 0px 0px;
 }
 
 .questionDiv {
@@ -92,34 +151,39 @@
     margin: 1.5vh;
 }
 
-.normalValueForm {
-    diplay: flex;
-    align-content: flex-end;
-}
 
 .normalValueDiv {
     display: flex;
-    align-content: flex-start;
+    text-align: left;
 }
 
 .normalValueInput {
-    max-width: 10%;
     padding: 1vh;
     font-size: medium;
-    align-content: center;
     margin-bottom: 1.5vh;
-    margin-left: auto;
 }
 
-. leftAlignedDiv {
-    display: flex;
-    align-content: flex-end;
+#normalValuesLabel {
+    margin-right: auto;
+    margin-left: 0px;
+    min-width: 60%;
 }
+
+.leftAlignedDiv {
+    margin: 0 auto;
+    margin-left: 0;
+}
+
+#admin {
+    max-width: 70%;
+    margin-bottom: 2%;
+}
+
 
 .formButton {
     margin-top: 1vh;
     background: #1A73E8;
-    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 30px -6px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid transparent;
     border-radius: 5px;
@@ -131,12 +195,16 @@
     width: 12vh;
 }
 
+.animatedButton:hover {
+    zoom: 102%;
+}
+
 .rightButton {
     float: right;
 }
 
 .questionButton {
-   margin-right: 18%;
+    margin-right: 18%;
     margin-top: 2vh;
     margin-bottom: 5%;
 }
@@ -152,18 +220,21 @@
 }
 
 .App-header {
-  background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    align-items: flex-start;
+    margin-left: 21%;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
 
 }
-.App-header-align{
-  text-align: center;
+
+.App-header-align {
+    text-align: center;
 }
 
 .App-link {
@@ -239,4 +310,26 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+/* select CSS */
+.select {
+    width: 20%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    font-size: 15px;
+    border: 2px solid black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-gap: 12px;
+    grid-template-rows: auto;
+}
+
+.grid-item {
+
 }
