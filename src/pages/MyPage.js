@@ -66,7 +66,6 @@ export class MyPage extends React.Component {
         if (prevProps.patientResponse !== this.props.patientResponse) {
             this.updateState();
         }
-        this.getAvatar();
         this.updateSmoke();
         this.updateDrinks();
         this.updateCanRate();
